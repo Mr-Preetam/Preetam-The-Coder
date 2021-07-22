@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Call and SMS</title>
+    <script type="text/javascript">
+        function calculation() {
+            var call = parseFloat(document.getElementById("call").value);
+            var sms = parseFloat(document.getElementById("sms").value);
+
+            var chargeC = 0.0;
+            if (call <= 50) chargeC = .50 * call;
+            else if (call <= 150 && call > 50) chargeC = 25 + (call - 50) * .70;
+            else if (call <= 300 && call > 150) chargeC = 95 + (call - 150) * .70;
+            else if (call > 300) chargeC = 222.5 + (call - 300) * .95;
+
+            var chargeM = 0.0;
+            if (sms <= 200 && sms > 50) chargeM = (sms - 50) * .25;
+            else if (sms <= 400 && sms > 200) chargeM = 37.5 + (sms - 200) * .40;
+            else if (sms > 400) chargeM = 57.5 + (sms - 400) * .45;
+
+            document.getElementById("output").innerHTML = "Charges for Call :" + chargeC + "<br>" + "Charges for SMS : " + chargeM + "<br>" + "Total charge : " + (chargeC + chargeM);
+        }
+    </script>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Text and Output</legend>
+        <table>
+            <tr>
+                <td><label>Enter the number of calls : </label></td>
+                <td><input id="call" type="text"></td>
+            </tr>
+            <tr>
+                <td><label>Enter the number of SMS : </label></td>
+                <td><input type="text" id="sms"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Submit" onclick="calculation()"></td>
+            </tr>
+        </table>
+    </fieldset>
+    <div>
+        <h3>Output :</h3>
+        <p id="output"></p>
+    </div>
+</body>
+
+</html>

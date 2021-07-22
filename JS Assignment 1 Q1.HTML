@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Find and replace</title>
+    <script type="text/javascript">
+        function replacement() {
+            var message = document.getElementById("message").value;
+            var wordR = document.getElementById("wordReplace").value;
+            var wordRW = document.getElementById("wordReplaceWith").value;
+
+            var newMessage = message.replaceAll(wordR, wordRW);
+            document.getElementById("output").innerHTML = newMessage;
+        }
+    </script>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Find and Replace</legend>
+        <table>
+            <tr>
+                <td><label>Enter the Text : </label></td>
+                <td><input id="message" type="text"></td>
+            </tr>
+            <tr>
+                <td><label>Enter word to replace : </label></td>
+                <td><input type="text" id="wordReplace"></td>
+            </tr>
+            <tr>
+                <td><label>Enter word to replace with : </label></td>
+                <td><input type="text" id="wordReplaceWith"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Submit" onclick="replacement()"></td>
+            </tr>
+        </table>
+    </fieldset>
+    <div>
+        <h3>Output :</h3>
+        <p id="output"></p>
+    </div>
+</body>
+
+</html>
